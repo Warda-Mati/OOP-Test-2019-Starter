@@ -9,7 +9,7 @@ import processing.data.TableRow;
 public class UI extends PApplet
 
 {
-	ArrayList<Colour> color = new ArrayList<Colour>();
+	ArrayList<Colour> colours = new ArrayList<Colour>();
 	
 	public void separate(int value)
 	{
@@ -32,27 +32,49 @@ public class UI extends PApplet
 
 	public void setup() 
 	{
+		loadData();
+		PrintColour();
+	
+		
 	}
 
 	public void loadData()
 	{
-		Table table = loadTable("colours.csv", "header")
+		Table table = loadTable("colours.csv", "header");
 		for(TableRow row :table.rows())
-		{
-		Colour c = new Colour(row);
-		color.add(c);
-		}
+			{
+			Colour c = new Colour(row);
+			colours.add(c);
+			}
 	}
 
 	public void PrintColour()  // print colour
 	{
-		for(Colour c: color) // for each loop 
+		for(Colour c: colours) // for each loop 
 		{
 			System.out.println(c);
 		}
 	}
+
+	public Colour findColor(int value)
+	{
+		for(Colour col: colours)
+		{
+			if ( value == col.value)
+				{
+					return col;  
+				}
+			
+		}
+		return null;
+
+	}
 	
 	public void draw()
-	{			
+	{	
+
 	}
 }
+
+
+
