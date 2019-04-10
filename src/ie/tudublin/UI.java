@@ -10,6 +10,7 @@ public class UI extends PApplet
 
 {
 	ArrayList<Colour> color = new ArrayList<Colour>();
+	
 	public void separate(int value)
 	{
 		int hundreds = (value / 100);
@@ -40,6 +41,14 @@ public class UI extends PApplet
 		{
 		Colour c = new Colour(row);
 		color.add(c);
+		}
+	}
+
+	public void PrintColour()  // print colour
+	{
+		for(Colour c: color) // for each loop 
+		{
+			System.out.println(c);
 		}
 	}
 	

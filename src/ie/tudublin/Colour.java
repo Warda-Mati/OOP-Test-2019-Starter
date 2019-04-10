@@ -4,33 +4,62 @@ import processing.data.TableRow;
 
 public class Colour 
 {
-    private String colour;
+    private String colour; // fields 
     private int r;
     private int g;
     private int b;
     private int value;
 
+    
 
-    public Colour(TableRow row)
+    public Colour( String colour, int r, int g, int b, int value) // constructor 
     {
-        this.colour = row.getString("colour");
-        this.r = row.getInt("r");
-        this.g = row.getInt("g");
-        this.b = row.getInt("b");
-        this.value = row.getInt("value");
+        this.colour =colour;
+        this.r = r;
+        this.g = g;
+        this.b = b;
+        this.value = value;
+    }
+
+
+    public Colour(TableRow row) // passing table row as a parameter
+    {
+        this(row.getString("colour"), 
+        row.getInt("r"),
+        row.getInt("g"),
+        row.getInt("b"),
+        row.getInt("value"));
     }
 
     
-    public String getColour() {
-        return colour;
-    }
-
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
 
     public String toString()
     {
         return colour +"\t" + r  +"\t" + g  +"\t" + b  +"\t" + value;
     }
+
+    /**
+     * @return the colour
+     */
+    public String getColour() {
+        return colour;
+    }
+
+    /**
+     * @param colour the colour to set
+     */
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
 }
+    
+
+    
+    
+
+
+  
+
+   
+    
